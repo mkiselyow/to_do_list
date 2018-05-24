@@ -56,14 +56,17 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.7.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Authentication
-gem 'devise'
+gem 'devise', '~> 4.4.3'
 
 # Codestyle
 gem 'rubocop', '~> 0.56.0', require: false
+
+# HAML views
+gem 'haml', '~> 5.0.0'
