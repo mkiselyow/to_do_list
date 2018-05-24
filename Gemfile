@@ -48,7 +48,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rspec-rails', '~> 3.7.2' # added to generate rspec test 
   # Codestyle
   gem 'rubocop', '~> 0.56.0', require: false
 end
@@ -59,7 +58,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
-  gem 'rspec-rails', '~> 3.7.2'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
 end
 
@@ -71,3 +70,7 @@ gem 'devise', '~> 4.4.3'
 
 # HAML views
 gem 'haml', '~> 5.0.0'
+
+group :test, :development do
+  gem 'rspec-rails', '~> 3.7.2'
+end
