@@ -5,9 +5,17 @@
     %title ToDoList
     = csrf_meta_tags
     = csp_meta_tag
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", rel: "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all'
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"}
+    %script{crossorigin: "anonymous", integrity: "sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=", src: "https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"}
+    %script{crossorigin: "anonymous", integrity: "sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa", src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
     = javascript_include_tag 'application'
   %body
     %p.notice= notice
     %p.alert= alert
     = yield
+    = render partial: "layouts/navigation"
+
+

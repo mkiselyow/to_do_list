@@ -1,0 +1,10 @@
+- flash.each do |key, message|
+  - if key == 'notice'
+    %p.alert.alert-success{role: "alert"}
+      = message
+  - elsif key == 'alert'
+    %p.alert.alert-danger{role: "alert"}
+      = message
+  - else
+    %p{class: key}
+      = message

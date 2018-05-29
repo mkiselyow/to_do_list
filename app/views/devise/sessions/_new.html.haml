@@ -1,0 +1,24 @@
+#sign_in.modal.fade{"aria-labelledby" => "sign_inLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog{role: "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", type: "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h2 Sign in
+      .modal-body
+        = form_for(User.new, url: session_path(:user), html:{id: 'sign_in_user'}, :'data-type' => 'json', remote: true, :format => :json ) do |f|
+          %div
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true
+          %div
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "off"
+          - if Devise.mappings[:user].rememberable?
+            %div
+              = f.check_box :remember_me
+              = f.label :remember_me
+          %div
+            = f.submit "Sign in"
+      .modal-footer
