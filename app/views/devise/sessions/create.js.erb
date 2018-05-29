@@ -7,9 +7,9 @@ $("head").append("<meta name='csrf-param' content='<%= request_forgery_protectio
 <% elsif notice %>
   $("form#sign_in_user").parents('.modal').modal('hide');
   setTimeout(function() {$('#navigation').replaceWith("<%= j(render 'layouts/navigation') %>")}, 500);
-  $("body").children('p.notice').html("<%= j(render 'devise/shared/flashes') %>");
+  $("body").children('p.notifications').html("<%= j(render 'devise/shared/flashes') %>");
 <% else %>
   $("form#sign_in_user").parents('.modal').modal('hide');
   setTimeout(function() {$('#navigation').replaceWith("<%= j(render 'layouts/navigation') %>")}, 500);
-  $("body").children('p.notice').html("<%= j(render 'devise/shared/flashes') %>");
+  $("body").children('p.notifications').html("<%= j(render 'devise/shared/flashes') %>");
 <% end %>
