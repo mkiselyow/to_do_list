@@ -58,6 +58,7 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'database_cleaner', '~> 1.6.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
 end
@@ -72,5 +73,7 @@ gem 'devise', '~> 4.4.3'
 gem 'haml', '~> 5.0.0'
 
 group :test, :development do
+  gem 'factory_bot_rails', '~> 4.0'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 3.7.2'
 end

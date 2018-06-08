@@ -3,6 +3,6 @@
 # tasks model
 class Task < ApplicationRecord
   validates :title, presence: true, format:
-    { with: /([A-Za-z0-9]){3,10}/, message: 'Only 3-10 character title allowed' }
-  belongs_to :project, dependent: :destroy
+    { with: /([A-Za-z0-9\s]){3,15}/, message: 'Only 3-15 character/whitespace title allowed %{value}' }
+  belongs_to :project
 end
