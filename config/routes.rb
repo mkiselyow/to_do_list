@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   get 'welcome/index'
-  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
+  devise_for :users, controllers: { 
+    registrations: 'registrations', 
+    sessions: 'sessions' }
   root 'welcome#index'
 
   # devise_scope :user do

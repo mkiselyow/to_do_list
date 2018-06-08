@@ -1,1 +1,10 @@
-setTimeout(function() {$('#navigation').replaceWith("<%= j(render 'layouts/navigation') %>")}, 500);
+$("meta[name='csrf-token']").remove();
+$("meta[name='csrf-param']").remove();
+$("head").append("<meta name='csrf-token' content='<%= form_authenticity_token %>'>");
+$("head").append("<meta name='csrf-param' content='<%= request_forgery_protection_token %>'>");
+<% if alert %>
+  $("body").children('p.notifications').html("<%= j(render 'devise/shared/flashes') %>");
+<% else %>
+  setTimeout(function() {$('#navigation').replaceWith("<%= j(render 'layouts/navigation') %>")}, 500);
+  $("body").children('p.notifications').html("<%= j(render 'devise/shared/flashes') %>");
+<% end %>

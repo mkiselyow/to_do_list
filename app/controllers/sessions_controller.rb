@@ -7,23 +7,19 @@ class SessionsController < Devise::SessionsController
   def create
     self.resource = User.find_by_email(sign_in_params[:email])
     if resource&.valid_password?(sign_in_params[:password])
-      flash.now[:notice] = 'Signed successfully'
+      set_flash_message :notice, :signed_in, {now: true}
       sign_in(resource_name, resource)
       yield resource if block_given?
       respond_with resource, location: after_sign_in_path_for(resource)
-    elsif resource.nil?
+    elsif resource.nil? || !resource.valid_password?(sign_in_params[:password])
       self.resource = resource_class.new(sign_in_params)
-      flash.now[:alert] = I18n.t(:invalid_email, scope: %i[devise failure], default: 'Invalid Email')
-    elsif !resource.valid_password?(sign_in_params[:password])
-      flash.now[:alert] = I18n.t(:invalid_password, scope: %i[devise failure], default: 'Invalid Password')
+      set_flash_message :alert, :invalid, { scope: %i[devise failure], now: true, authentication_keys: 'email' }
     end
   end
 
   def destroy
-    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-    flash.now[:notice] = 'Signed out successfully'
-    yield if block_given?
-    respond_to_on_destroy
+    super
+    set_flash_message :notice, :signed_out, {now: true}
   end
 
   private
