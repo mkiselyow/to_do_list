@@ -34,6 +34,10 @@ RSpec.configure do |config|
     Faker::UniqueGenerator.clear
     Rails.application.load_seed # loading seeds
   end
+  config.before(:each, type: :feature) do
+    # Capybara.current_session.driver.browser.manage.window.resize_to(2500, 2500) not working
+  end
+  config.include Rails.application.routes.url_helpers
 end
 
 Shoulda::Matchers.configure do |config|
@@ -41,4 +45,15 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.javascript_driver = :selenium_chrome
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 5 # seconds
+  Capybara.automatic_reload = false
 end
