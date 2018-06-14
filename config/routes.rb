@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     delete 'users/sign_up', to: 'registrations#destroy', as: 'destroy_user_registration'
   end
 
+  resources :projects, only: %i(create destroy edit update) do
+    resources :tasks, only: %i(create destroy edit update)
+  end
+
   # devise_scope :user do
   #   authenticated :user do
   #     root 'welcome#index', as: :authenticated_root

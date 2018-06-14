@@ -55,5 +55,5 @@ Capybara.javascript_driver = :selenium_chrome
 
 Capybara.configure do |config|
   config.default_max_wait_time = 5 # seconds
-  Capybara.automatic_reload = false
+  # Capybara.automatic_reload = false
 end

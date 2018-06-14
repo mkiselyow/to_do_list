@@ -1,0 +1,13 @@
+%li.list_shopping{id: "task#{task.id}", class: "#{task.status ? 'list_finish_state' : '' }"}
+  .col_md_1_list
+    %p=task.action ? task.action.upcase : ''
+  .col_md_2_list
+    %h4=task.title.upcase
+    %p DODIDONE COFFEE STORE
+  .col_md_3_list
+    .cont_text_date
+      %p=task.deadline
+  .col_md_4_list
+    = render  partial: "tasks/task_status", locals: { task: task, project: task.project }
+    .btn.btn-default= link_to '', edit_project_task_path(task.project, task), class: 'ed_task glyphicon glyphicon-pencil', 'aria-hidden' => true, 'title' => 'edit task', remote: true
+    .btn.btn-default= link_to '', project_task_path(task.project, task), method: :delete, remote: true, class: 'destroy_task glyphicon glyphicon-trash', 'aria-hidden' => true, 'title' => 'delete task'

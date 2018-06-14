@@ -1,0 +1,7 @@
+= form_for([project, task], format: :js, remote: true, html: {class: 'task_status'}) do |f|
+  %div
+    .field.status
+      = f.check_box :status, 'placeholder' => :status, onchange: "statusDone(#{task.id});"
+      %br
+      %small done
+      = f.submit

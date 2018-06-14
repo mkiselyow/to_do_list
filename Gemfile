@@ -77,3 +77,10 @@ group :test, :development do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 3.7.2'
 end
+
+# datetime picker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+
+# js submit on change fix
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'

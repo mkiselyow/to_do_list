@@ -1,0 +1,4 @@
+$("li#task<%= @task.id %>").hide(2000);
+$("li#task<%= @task.id %>").replaceWith("<%= j(render 'edit_task', task: @task, project: @task.project) %>");
+$("div.edit_task<%= @task.id %>").hide(0);
+$("div.edit_task<%= @task.id %>").show(2000);

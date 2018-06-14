@@ -1,0 +1,9 @@
+<% if params[:task][:status] %>
+  alert('sssssssssssssss');
+  $("form#edit_task_<%= @task.id %>").parent().parent().toggleClass('list_finish_state');
+<% else %>
+  $("div.edit_task<%= @task.id %>").hide(2000);
+  $("div.edit_task<%= @task.id %>").replaceWith("<%= j(render 'task', task: @task, project: @task.project) %>");
+  $("li#task<%= @task.id %>").hide(0);
+  $("li#task<%= @task.id %>").show(2000);
+<% end %>

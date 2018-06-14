@@ -1,0 +1,24 @@
+.cont_crear_new_active.edit_task{class: "edit_task#{task.id}", name: "edit_task#{task.id}", style: "display: none;"}
+  =form_for([project, task], remote: true) do |f|
+    %table.table
+      %tr
+        %th Action
+        %th Title
+      %tr
+        %td
+          %select#action_select{:name => "task[action]", class: 'width100perc'}
+            %option{:value => "SHOPPING"} SHOPPING
+            %option{:value => "WORK"} WORK
+            %option{:value => "SPORT"} SPORT
+            %option{:value => "MUSIC"} MUSIC
+        %td{colspan: '2'}
+          = f.text_field :title, id: :task_title, required: true, pattern: "([A-Za-z0-9\s]){3,15}", size: 15, class: 'input_title_desc'
+      %tr
+        %th.titl_description Deadline
+      %tr
+        %td{:colspan => "4"}
+          = date_select :task, :deadline, {order: [:day, :month, :year], start_year: 2018}, {class: 'width30perc'}      
+      %tr
+        %td{:colspan => "3"}
+          = button_to 'CANCEL', '#', class: 'edit_task_submit_button cancel_button', 'aria-hidden' => true, 'title' => 'back to task', remote: true, name: 'cancel'
+          = f.submit 'EDIT', class: 'edit_task_submit_button'

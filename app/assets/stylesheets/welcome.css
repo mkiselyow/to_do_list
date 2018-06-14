@@ -79,6 +79,7 @@ body {
   background: -webkit-linear-gradient(-45deg,  rgba(250,249,247,1) 0%,rgba(221,218,209,1) 100%);
   background: linear-gradient(135deg,  rgba(250,249,247,1) 0%,rgba(221,218,209,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf9f7', endColorstr='#dddad1',GradientType=1 );
+  background-attachment: fixed;
 }
 
 .cont_crear_new {  
@@ -130,7 +131,7 @@ body {
   width: 33.33%;
 }
 .table td select {
-  width: 100%;
+  /*width: 100%;*/
   padding: 10px 0px;
   background-color: #fff;
   box-shadow: 1px 5px 10px -5px rgba(0,0,0,0.5);
@@ -244,6 +245,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;  
+  margin-top: 20px;
 }
 .col_md_3_list > .cont_text_date > p {
   text-align: right;
@@ -262,10 +264,10 @@ body {
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
-  background-color: #F1F1EF;
+/*  background-color: #F1F1EF;*/
   width: 100%;
   height: 47px;
-  top: 0px;
+  top: 25px;
 }
 
 .col_md_3_list > .cont_btns_options > ul > li{
@@ -336,4 +338,69 @@ body {
 
 .modal-backdrop.fade.in {
   z-index: 0;
+}
+
+.navbar-default {
+  box-shadow: 1px 15px 25px -5px rgba(0,0,0,0.3);
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.notifications, .modal-footer {
+  width: 500px;
+}
+
+#navigation {
+  padding: 0 15px;
+}
+
+.notifications {
+  position: fixed;
+  top: 25%;
+  z-index: 1000;
+}
+
+.modal-footer {
+  padding: 20px 0px 0px 0px;
+  min-height: 100px;
+  margin: 0 auto;
+}
+
+.width30perc {
+  width: 32%;
+}
+
+.width100perc {
+  width: 100%;
+}
+
+table td input.add_task_submit_button {
+  position: relative;
+  padding: 10px 20px;
+  background-color: #4C75A1;
+  border: none;
+  margin: 10px auto;
+  box-shadow: 1px 5px 10px -5px rgba(0,0,0,0.5);
+  color: #fff;
+  cursor: pointer;
+  width: 15%;
+}
+.edit_task_submit_button {
+  width: 33% !important; 
+  padding: 10px 2%;
+  background-color: #fff;
+  border: none;
+  box-shadow: 1px 5px 10px -5px rgba(0,0,0,0.5);
+  text-align: left;
+  outline: none;
+}
+
+form.task_status {
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 23px;
+  left: -85px;
 }

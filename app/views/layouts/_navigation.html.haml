@@ -1,12 +1,12 @@
 
-#navigation.collapse.navbar-collapse
+#navigation.navbar.navbar-default
   - if current_user
     %ul.nav.navbar-nav
       %li
         %p.navbar-text
           = "Signed in as #{current_user.email}"
       %li
-        = link_to "Sign out", destroy_user_session_path, :method => :delete, remote: true, id: 'sign_out', class: "btn btn-default", type: 'button'
+        = link_to "Sign out", destroy_user_session_path, :method => :delete, remote: true, id: 'sign_out', class: "", type: 'button'
       %li
         %a{href: "#"} Link
     %ul.nav.navbar-nav.navbar-right
@@ -20,9 +20,9 @@
   - else
     %ul.nav.navbar-nav
       %li
-        = link_to "Sign in", "#sign_in", "data-toggle" => "modal", class: "btn btn-default", type: 'button'
+        = link_to "Sign in", "#sign_in", "data-toggle" => "modal", class: "", type: 'button'
       %li
-        = link_to "Sign up", "#sign_up", "data-toggle" => "modal", class: "btn btn-default", type: 'button'
+        = link_to "Sign up", "#sign_up", "data-toggle" => "modal", class: "", type: 'button'
       %li
         %a{href: "#"} Link
   = render 'devise/registrations/new'
