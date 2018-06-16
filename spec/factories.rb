@@ -8,12 +8,12 @@ FactoryBot.define do
   end
 
   factory :project, class: 'Project' do
-    title { Faker::Job.field }
+    title { Faker::Job.field.truncate(14) }
     association :user
   end
 
   factory :project_with_tasks, class: 'Project' do
-    title {Faker::Job.field}
+    title {Faker::Job.field.truncate(14)}
     association :user
     after :create do |project_with_tasks|
       create_list :task, 3, project: project_with_tasks
@@ -21,7 +21,7 @@ FactoryBot.define do
   end
 
   factory :task, class: 'Task' do
-    title {Faker::Job.key_skill.truncate(15)}
+    title {Faker::Job.key_skill.truncate(14)}
     status {Faker::Boolean.boolean}
     deadline {Faker::Date.between(2.days.ago, Date.today)}
     association :project

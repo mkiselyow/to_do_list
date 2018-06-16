@@ -227,8 +227,20 @@ $(document).ready(function() {
 //     return false;
 //   });
 });
-function statusDone(task) {
-  alert('ss')
-  $("form#edit_task_"+task).submit();
-  return false;
+// function statusDone(task) {
+//   alert('ss')
+//   $("form#edit_task_"+task).submit();
+//   return false;
+// };
+
+function statusDone(task, project) {
+
+    var url = "/projects/" + project + "/tasks/" + task; // the script where you handle the form input.
+    var form_id = '#edit_task_' + task;
+    $.ajax({
+           type: "PATCH",
+           url: url,
+           data: $(form_id).serialize(), // serializes the form's elements.
+         });
+    return false; // avoid to execute the actual submit of the form.
 };

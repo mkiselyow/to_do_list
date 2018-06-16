@@ -1,5 +1,4 @@
 <% if params[:task][:status] %>
-  alert('sssssssssssssss');
   $("form#edit_task_<%= @task.id %>").parent().parent().toggleClass('list_finish_state');
 <% else %>
   $("div.edit_task<%= @task.id %>").hide(2000);

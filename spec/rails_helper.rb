@@ -47,13 +47,13 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Capybara.register_driver :selenium_chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
+# Capybara.register_driver :selenium_chrome do |app|
+#   Capybara::Selenium::Driver.new(app, browser: :chrome)
+# end
 
-Capybara.javascript_driver = :selenium_chrome
+# Capybara.javascript_driver = :selenium_chrome
 
-Capybara.configure do |config|
-  config.default_max_wait_time = 5 # seconds
-  # Capybara.automatic_reload = false
-end
+# Capybara.configure do |config|
+#   config.default_max_wait_time = 5 # seconds
+#   # Capybara.automatic_reload = false
+# end

@@ -55,12 +55,13 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.53.4'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem 'database_cleaner', '~> 1.6.0'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
+  gem 'poltergeist', '~> 1.18.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -77,10 +78,3 @@ group :test, :development do
   gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 3.7.2'
 end
-
-# datetime picker
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-
-# js submit on change fix
-gem 'jquery-rails', '~> 4.3', '>= 4.3.3'

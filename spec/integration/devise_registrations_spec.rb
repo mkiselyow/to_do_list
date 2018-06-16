@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Registrations : ", :type => :feature do
+RSpec.feature "Registrations : ", :type => :feature, js: true do
 
   it "Unauthorized User can Sign Up(by devise gem) with message" do
     visit '/'
@@ -29,13 +29,15 @@ RSpec.feature "Registrations : ", :type => :feature do
     end
     expect(page).to have_content 'Signed in as'
     # find("#cancel_account", visible: false).click
-    within(:css, "li#dropdown") do
-      click_link 'Options', match: :second
+    within(:css, "li.dropdown") do
+      click_link 'Options'
       click_link 'Cancel my account'
     end
-    page.accept_confirm do
-      click_link 'OK'
-    end
+    page.accept_alert
+    # page.driver.browser.switch_to.alert.accept
+    # page.accept_confirm do
+    #   click_button 'OK'
+    # end
     sleep(1)
     expect(page).to have_content 'Bye! Your account has been successfully cancelled. We hope to see you again soon.'
   end
