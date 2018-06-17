@@ -1,4 +1,4 @@
 $(".cont_princ_lists.pr<%= @task.project.id %> ul" ).prepend("<%= j(render 'task', task: @task) %>")
 $('#task<%= @task.id %>').hide()
-$('#task<%= @task.id %>').show(1000)
+$('#task<%= @task.id %>').toggle(1000)
 $('.new_task.pr<%= @task.project.id %>').toggleClass(" cont_crear_new_active")

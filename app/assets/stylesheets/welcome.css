@@ -404,3 +404,34 @@ form.task_status {
   top: 23px;
   left: -85px;
 }
+
+.new_project .cont_titulo_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: initial;
+  align-items: center;
+}
+
+
+.new_project .cont_titulo_cont h3 input {
+  color: #333;
+}
+
+.cont_add_titulo_cont button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  width: 100%;
+  color: #fff;
+  font-size: 32px;
+  margin-top: 14px;
+  width: 100%;
+}
+
+.edit_project .cont_titulo_cont {
+  width: 360px;
+}
+
+.edit_project .cont_titulo_cont h3 {
+  width: 50%;
+}

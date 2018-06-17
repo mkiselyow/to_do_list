@@ -3,4 +3,4 @@
     .field.status
       = f.check_box :status, 'placeholder' => :status, onchange: "statusDone(#{task.id}, #{project.id});"
       %br
-      %small %done
+      %small done

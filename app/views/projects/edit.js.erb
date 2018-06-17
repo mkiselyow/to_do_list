@@ -1,0 +1,3 @@
+$(".cont_principal.pr<%= @project.id %>").replaceWith("<%= j(render 'edit_project', project: @project) %>");
+$(".cont_principal.new_project.edit_pr<%= @project.id %>").hide(0);
+$(".cont_principal.new_project.edit_pr<%= @project.id %>").toggle(1000);

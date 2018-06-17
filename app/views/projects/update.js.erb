@@ -1,0 +1,4 @@
+$(".cont_principal.new_project.edit_pr<%= @project.id %>").hide(2000);
+setTimeout($(".cont_principal.new_project.edit_pr<%= @project.id %>").replaceWith("<%= j(render 'project', project: @project, task: Task.new) %>"), 2000);
+$(".cont_principal.pr<%= @project.id %>").hide(0)
+$(".cont_principal.pr<%= @project.id %>").toggle(1000)

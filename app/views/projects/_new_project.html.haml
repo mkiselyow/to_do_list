@@ -1,0 +1,10 @@
+.cont_principal.new_project
+  .cont_centrar
+    .cont_todo_list_top
+      =form_with model: project, remote: true do |f|
+        .cont_titulo_cont
+          %h3= f.label 'Add New Project'
+          %h3= f.text_field :title, id: :project_title, required: true
+        .cont_add_titulo_cont
+          = button_tag do
+            %i.material-icons input

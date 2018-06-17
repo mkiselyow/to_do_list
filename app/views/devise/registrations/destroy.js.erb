@@ -7,4 +7,5 @@ $("head").append("<meta name='csrf-param' content='<%= request_forgery_protectio
 <% else %>
   setTimeout(function() {$('#navigation').replaceWith("<%= j(render 'layouts/navigation') %>")}, 500);
   $("body").children('p.notifications').html("<%= j(render 'devise/shared/flashes') %>");
+  $(".cont_principal").remove();
 <% end %>

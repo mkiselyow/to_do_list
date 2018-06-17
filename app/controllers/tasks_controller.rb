@@ -2,13 +2,13 @@
 
 # main page controller
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, :only => [:update]
   # before_action :correct_user_tasks
 
   def create
-    p params
+
     @project = Project.find(params[:project_id])
     @task = @project.tasks.build(task_params)
 
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-    p params
+
     respond_to do |format|
       if @task.update(task_params) && params[:cancel] == nil
         format.js {}

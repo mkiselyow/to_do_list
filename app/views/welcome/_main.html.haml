@@ -1,0 +1,4 @@
+= render :partial => "projects/new_project", locals: { project: project }
+- if projects
+  - projects.each do |project|
+    = render :partial => "projects/project", locals: { project: project, task: task }

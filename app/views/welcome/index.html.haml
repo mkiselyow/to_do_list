@@ -1,2 +1,4 @@
-- @projects.each do |project|
-  = render :partial => "projects/project", locals: { project: project }
+- if current_user
+  = render :partial => "main", locals: { project: @project, task: @task, projects: @projects }
+- else
+  %h1 YOU NEED TO SIGN UP OR SIGN IN

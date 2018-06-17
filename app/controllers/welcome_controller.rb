@@ -3,7 +3,10 @@
 # main page controller
 class WelcomeController < ApplicationController
   def index
-    @projects = Project.all
-    @task = Task.new
+    if current_user
+      @projects = current_user.projects
+      @task = Task.new
+      @project = Project.new
+    end
   end
 end

@@ -1,0 +1,3 @@
+$("<%= j(render 'project', project: @project, task: Task.new) %>").insertAfter( $('.cont_principal.new_project') );
+$('.cont_principal.pr<%= @project.id %>').hide();
+$('.cont_principal.pr<%= @project.id %>').show(1000);

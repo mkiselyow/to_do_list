@@ -1,18 +1,13 @@
--#   = render partial: 'users/user_popover', locals: { user: project.user}
--#   " data-trigger="hover" data-html="true"&gt;#{project.user.email}
--# .col-md-1.col-md-offset-1.col-xs-1= link_to '', edit_user_project_path(project.user, project), class: 'glyphicon glyphicon-wrench', 'aria-hidden' = true, 'title' = 'rename'
--# .col-md-1.col-xs-1= link_to '', project, class: 'destroy_project glyphicon glyphicon-trash', method: :delete, remote: true, 'aria-hidden' = true, 'title' = 'delete project'
--# .col-md-1.col-xs-1= link_to '', '#', class: 'add_task glyphicon glyphicon-plus pr#{project.id}', 'aria-hidden' = true, 'title' = 'new task', 'name' = "pr#{project.id}"
 .cont_principal{class: "pr#{project.id}", name: "pr#{project.id}"}
   .cont_centrar
     .cont_todo_list_top
-      .cont_titulo_cont
-        %h3= project.title
+      .cont_titulo_cont{onclick: "editProject(#{project.id});"}
+        %h3{onmouseover: "toggleProject(#{project.id});"}= project.title.capitalize
+        %h3{style: "display: none;"}} PRESS MOUSE LEFT KEY TO CHANGE
       .cont_add_titulo_cont
         %a.add_task{:href => "#"}
           %i.material-icons 
-      / End cont_todo_list_top
-    = render partial: 'tasks/new_task', locals: { task: @task, project: project}
+    = render partial: 'tasks/new_task', locals: { task: task, project: project}
     .cont_princ_lists{class: "pr#{project.id}"}
       %ul
         - if project.tasks

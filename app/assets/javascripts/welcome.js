@@ -244,3 +244,20 @@ function statusDone(task, project) {
          });
     return false; // avoid to execute the actual submit of the form.
 };
+
+function toggleProject(project) {
+  $('.cont_principal.pr' + project).children().children().first().children().first().children().toggle(1000);
+  setTimeout( function() {
+    $('.cont_principal.pr' + project).children().children().first().children().first().children().toggle(1000);
+  }, 2000)
+}
+
+function editProject(project) {
+  var url = "/projects/" + project + '/edit'; // the script where you handle the form input.
+  $.ajax({
+         type: "GET",
+         url: url,
+         data: {"project" : project},
+       });
+  return false;
+}
