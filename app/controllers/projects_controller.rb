@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
   skip_before_action :verify_authenticity_token, :only => [:update]
-  # before_action :correct_user_projects
+  before_action :correct_user_projects
 
   def create
 
