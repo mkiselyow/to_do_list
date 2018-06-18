@@ -20,14 +20,4 @@ Rails.application.routes.draw do
   resources :projects, only: %i(create destroy edit update) do
     resources :tasks, only: %i(create destroy edit update)
   end
-
-  # devise_scope :user do
-  #   authenticated :user do
-  #     root 'welcome#index', as: :authenticated_root
-  #   end
-
-  #   unauthenticated do
-  #     root 'devise/sessions#new', as: :unauthenticated_root
-  #   end
-  # end
 end

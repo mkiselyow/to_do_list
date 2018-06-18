@@ -8,6 +8,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
+require 'support/controller_macros'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -25,6 +26,7 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
+  config.extend ControllerMacros, type: :controller
   config.after(:each) do
     DatabaseCleaner.clean
   end
@@ -46,14 +48,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-
-# Capybara.register_driver :selenium_chrome do |app|
-#   Capybara::Selenium::Driver.new(app, browser: :chrome)
-# end
-
-# Capybara.javascript_driver = :selenium_chrome
-
-# Capybara.configure do |config|
-#   config.default_max_wait_time = 5 # seconds
-#   # Capybara.automatic_reload = false
-# end
