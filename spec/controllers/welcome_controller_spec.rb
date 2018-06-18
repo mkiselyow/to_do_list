@@ -8,14 +8,15 @@ RSpec.describe WelcomeController, type: :controller do
 
     login_user
 
+    it "renders the :index template" do
+      expect(get: root_url(subdomain: nil)).to route_to(
+        controller: "welcome",
+        action: "index")
+    end
+
     it 'returns http success' do
       get :index
       expect(response).to have_http_status(:success)
-    end
-
-    it "renders the index template" do
-      get :index
-      expect(response).to render_template("index")
     end
 
     it "assigns @projects when current_user" do
