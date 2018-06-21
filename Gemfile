@@ -73,9 +73,11 @@ gem 'devise', '~> 4.4.3'
 # HAML views
 gem 'haml', '~> 5.0.0'
 
+
 group :test, :development do
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
   gem 'rspec-rails', '~> 3.7.2'
   gem 'rails-controller-testing'
 end
+
+gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
